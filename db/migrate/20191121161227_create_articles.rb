@@ -3,7 +3,7 @@ class CreateArticles < ActiveRecord::Migration[6.0]
     create_table :articles do |t|
       t.string :title
       t.string :text
-      t.array :tags
+      t.string :tags
 
       t.timestamps
     end
