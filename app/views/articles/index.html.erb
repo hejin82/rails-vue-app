@@ -1,3 +1,7 @@
+<% content_for :head do -%>
+  <%= javascript_pack_tag 'article' %>
+<% end %>
+
 <p id="notice"><%= notice %></p>
 
 <h1>Articles</h1>
@@ -29,8 +33,6 @@
 <br>
 
 <%= link_to 'New Article', new_article_path %>
-
-<%= javascript_pack_tag 'article' %>
 
 <div id="app">
   {{message}}
