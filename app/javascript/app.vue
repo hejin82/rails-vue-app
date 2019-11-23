@@ -1,6 +1,10 @@
 <template>
   <div id="app">
-    <p>{{ message }}</p>
+    <AppHeader/>
+    <div class="container-fluid">
+        <button class="btn btn-primary">button</button>
+        <AppFooter/>
+    </div>
   </div>
 </template>
 
