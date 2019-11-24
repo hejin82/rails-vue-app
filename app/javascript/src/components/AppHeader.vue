@@ -19,7 +19,7 @@
                 </b-nav-item>
                 <b-nav-item-dropdown
                     id="entity-menu"
-                    :class="{'router-link-active': true}"
+                    :class="{'router-link-active': false}"
                     active-class="" class="pointer">
                     <span slot="button-content" class="navbar-dropdown-menu">
                         <font-awesome-icon icon="th-list" />
@@ -29,7 +29,7 @@
                 </b-nav-item-dropdown>
                 <b-nav-item-dropdown
                     id="admin-menu"
-                    :class="{'router-link-active': true}"
+                    :class="{'router-link-active': false}"
                     active-class="active"
                     class="pointer">
                     <span slot="button-content" class="navbar-dropdown-menu">
@@ -79,7 +79,7 @@
                     right
                     href="javascript:void(0);"
                     id="account-menu"
-                    :class="{'router-link-active': true}"
+                    :class="{'router-link-active': false}"
                     active-class="active"
                     class="pointer">
                     <span slot="button-content" class="navbar-dropdown-menu">
