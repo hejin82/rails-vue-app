@@ -3,17 +3,19 @@
     <AppHeader/>
     <div class="container-fluid">
         <button class="btn btn-primary">button</button>
-        <AppFooter/>
+        <app-footer></app-footer>
     </div>
   </div>
 </template>
 
 <script>
+import AppHeader from './src/components/AppHeader.vue'
+import AppFooter from './src/components/app-footer.vue'
+
 export default {
-  data: function () {
-    return {
-      message: "Hello Vue!"
-    }
+  components: {
+    AppHeader,
+    AppFooter
   }
 }
 </script>

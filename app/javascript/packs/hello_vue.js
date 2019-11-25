@@ -8,8 +8,8 @@
 import Vue from 'vue'
 import App from '../app.vue'
 import BootstrapVue from 'bootstrap-vue'
-import AppHeader from '../src/components/AppHeader.vue'
-import AppFooter from '../src/components/AppFooter'
+
+
 import * as bootstrapVueConfig from '../src/ConfigBootstrapVue';
 import * as fontawesomeConfig from '../src/ConfigFortawesome';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
@@ -17,17 +17,12 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 
-Vue.component("AppHeader", AppHeader)
-Vue.component("AppFooter", AppFooter)
 bootstrapVueConfig.initBootstrapVue(Vue);
 fontawesomeConfig.initFortAwesome(Vue);
 
 document.addEventListener('DOMContentLoaded', () => {
   const app = new Vue({
     render: h => h(App),
-    components: {
-      AppHeader
-    }
   }).$mount()
   document.body.appendChild(app.$el)
 

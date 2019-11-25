@@ -6,6 +6,7 @@
 
 <script>
 export default {
+  name: 'app-footer',
   data: function () {
     return {
       message: "Hello Vue!"
