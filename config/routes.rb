@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'vue/index'
   resources :articles
   root 'home#index'
   get 'home/index'
