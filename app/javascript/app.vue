@@ -4,24 +4,19 @@
     <div class="container-fluid">
         <button class="btn btn-primary">button</button>
         <AppTree :data="treeData"/>
-        <AppFooter/>
+        <app-footer></app-footer>
     </div>
   </div>
 </template>
 
 <script>
+import AppHeader from './src/components/AppHeader.vue'
+import AppFooter from './src/components/app-footer.vue'
+
 export default {
-  data: function () {
-    return {
-      message: "Hello Vue!",
-      treeData: [
-        {"title": "title1"} ,
-        {"title": "title2"} ,
-        {"title": "title3"} ,
-        {"title": "title4"} ,
-        {"title": "title5"} ,
-      ]
-    }
+  components: {
+    AppHeader,
+    AppFooter
   }
 }
 </script>

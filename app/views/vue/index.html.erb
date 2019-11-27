@@ -1,0 +1,32 @@
+<div id="app">
+  {{message}}<br/>
+  <div v-show="divShow">
+    v-show
+  </div>
+  <div v-if="divShow">
+    v-if
+  </div>
+  <button class="btn btn-primary" v-on:click="showDiv">show div</button>
+  <ul>
+    <todo-item/>
+  </ul>
+  <ul>
+    <todo-item1
+      v-for="item in todoList"
+      v-bind:todo="item"
+      v-bind:key="item.id">
+    </todo-item1>
+  </ul>
+  <button-counter></button-counter>
+  <div :style="{ fontSize: postFontSize + 'em'}">
+    <blog-post
+      v-for="post in posts"
+      v-bind:post="post"
+      v-on:enlarge-text="postFontSize += 0.1"
+    >
+    </blog-post>
+  </div>
+
+</div>
+<%= javascript_pack_tag 'vue_vue' %>
+<%#= stylesheet_pack_tag 'vue_vue' %>
