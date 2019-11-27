@@ -3,6 +3,7 @@
     <AppHeader/>
     <div class="container-fluid">
         <button class="btn btn-primary">button</button>
+        <AppTree :data="treeData"/>
         <AppFooter/>
     </div>
   </div>
@@ -12,7 +13,14 @@
 export default {
   data: function () {
     return {
-      message: "Hello Vue!"
+      message: "Hello Vue!",
+      treeData: [
+        {"title": "title1"} ,
+        {"title": "title2"} ,
+        {"title": "title3"} ,
+        {"title": "title4"} ,
+        {"title": "title5"} ,
+      ]
     }
   }
 }
