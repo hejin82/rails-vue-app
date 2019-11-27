@@ -17,12 +17,16 @@
         </form>
         <app-footer></app-footer>
     </div>
+	  <div class="container">
+		  <app-login/>
+	  </div>
   </div>
 </template>
 
 <script>
 import AppHeader from './src/components/app-header.vue'
 import AppFooter from './src/components/app-footer.vue'
+import AppLogin from './src/components/app-login'
 
 export default {
   data: {
@@ -35,7 +39,8 @@ export default {
   },
   components: {
     AppHeader,
-    AppFooter
+    AppFooter,
+	  AppLogin
   }
 }
 </script>
