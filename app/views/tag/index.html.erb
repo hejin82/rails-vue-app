@@ -1,2 +1,24 @@
 <h1>Tag#index</h1>
 <p>Find me in app/views/tag/index.html.erb</p>
+
+<div id="app" class="container">
+  <div>
+    tag:{{tag}}
+    tags:{{tags}}
+    message:{{message}}
+  </div>
+  <vue-tags-input
+    v-model="tag"
+    :tags="tags"
+    :allow-edit-tags="true"
+    :avoid-adding-duplicates="false"
+    :max-tags="40"
+    :maxlength="6"
+    placeholder="input tag"
+    :validation="validation"
+    @tags-changed="newTags => tags = newTags"
+    />
+
+</div>
+
+<%= javascript_pack_tag 'tag_vue' %>
