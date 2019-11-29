@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'tag/index'
   get 'vue/index'
   resources :articles
   root 'home#index'
