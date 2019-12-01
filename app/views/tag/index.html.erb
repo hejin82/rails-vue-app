@@ -3,22 +3,33 @@
 
 <div id="app" class="container">
   <div>
-    tag:{{tag}}
-    tags:{{tags}}
-    message:{{message}}
+    tag:tag
+    tags:{{tags
+    message:message
+    handlers:handlers
   </div>
+  <div>
+    <button class="btn btn-warning">warn</button>
+    <button class="btn btn-info">info</button>
+  </div>
+  <div v-if="true">max</div>
   <vue-tags-input
     v-model="tag"
     :tags="tags"
     :allow-edit-tags="true"
     :avoid-adding-duplicates="false"
     :max-tags="40"
-    :maxlength="6"
+    :maxlength="1116"
     placeholder="input tag"
     :validation="validation"
     @tags-changed="newTags => tags = newTags"
+    @input="inputcheck($event)"
+    @max-tags-reached="maxtags"
     />
-
+  <div>ssss</div>
+  <div v-if="handlers.length">
+    <div>wwwwwwww</div>
+  </div>
 </div>
 
 <%= javascript_pack_tag 'tag_vue' %>

@@ -1,6 +1,9 @@
 /* style the background and the text color of the input ... */
 .vue-tags-input {
     background: #324652;
+    width: 100% !important;
+    max-width: 100% !important;
+    font-weight: bold !important;
 }
 
 .vue-tags-input .ti-new-tag-input {
@@ -15,7 +18,9 @@
 
 /* we cange the border color if the user focuses the input */
 .vue-tags-input.ti-focus .ti-input {
-    border: 1px solid #ebde6e;
+    /*border: 1px solid #ebde6e;*/
+    border: 1px solid #b8daff;
+    background-color: #cce5ff;
 }
 
 /* some stylings for the autocomplete layer */
@@ -53,6 +58,19 @@
     position: relative;
     background: #ebde6e;
     color: #283944;
+    min-width: 130px;
+    /*font-size: 1em !important;*/
+    font-weight: bold !important;
+}
+
+.ti-content {
+    min-width: 100px;
+    padding: 2px 4px 2px 4px;
+}
+
+.ti-tag-center {
+    width: 100%;
+    padding: 2px 4px 2px 4px;
 }
 
 /* we defined a custom css class in the data model, now we are using it to style the tag */
@@ -67,12 +85,25 @@
 
 /* the styles if a tag is invalid */
 .vue-tags-input .ti-tag.ti-invalid {
-    background-color: #e88a74;
+    /*background-color: #e88a74 !important;*/
+    background-color: #f8d7da !important;
+    border: 1px solid #f5c6cb !important;
+    color: #721c24 !important;
+    font-weight: bold !important;
+    border-radius: 2px !important;
+}
+
+input.ti-new-tag-input.ti-valid {
+    color: #004085 !important;
+    /*color: #fff !important;*/
+    font-weight: bold !important;
 }
 
 /* if the user input is invalid, the input color should be red */
 .vue-tags-input .ti-new-tag-input.ti-invalid {
-    color: #e88a74;
+    /*color: #e88a74;*/
+    color: #721c24;
+    font-weight: bold !important;
 }
 
 /* if a tag or the user input is a duplicate, it should be crossed out */
@@ -96,4 +127,9 @@
 
 .vue-tags-input .ti-deletion-mark:after {
     transform: scaleX(1);
+}
+
+.ti-tag.ti-invalid, .ti-tag.ti-tag.ti-deletion-mark {
+    background-color: #e54d42 !important;
+    color: #fff !important;
 }

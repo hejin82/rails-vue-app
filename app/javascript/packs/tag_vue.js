@@ -8,7 +8,8 @@ document.addEventListener('DOMContentLoaded', () => {
       return {
         message: 'sss',
         tag: '',
-        tags: [],
+        tags: [{text: '1'},{text: 'wwwwwwwww'}],
+        handlers: [],
         validation: [{
           classes: 'min-length',
           rule: tag => tag.text.length < 4,
@@ -26,7 +27,15 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     },
     methods: {
-
+      inputcheck: function(e) {
+        console.log(e)
+        if (this.tags.length >= 40) {
+          alert(40)
+        }
+      },
+      maxtags: function () {
+        alert('max')
+      }
     },
     components: {
       VueTagsInput
