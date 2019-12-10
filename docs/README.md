@@ -24,9 +24,7 @@ footer: MIT Licensed | Copyright © 2018-present Evan You
 
 <demo-1></demo-1>
 
-# app-checkbox
 
-<app-checkbox></app-checkbox>
 
 # app-button
 <app-button @click="alert('click')">button</app-button>
