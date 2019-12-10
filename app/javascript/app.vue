@@ -3,28 +3,46 @@
     <AppHeader/>
     <div class="container-fluid">
         <button class="btn btn-primary">button</button>
-        <AppTree :data="treeData"/>
+        <div class="container">
+            <AppTree :data="treeData"/>
+        </div>
+        test checkbox:
+        <form role="form">
+          <div class="form-check abc-checkbox">
+            <input class="form-check-input" id="checkbox1" type="checkbox">
+            <label class="form-check-label" for="checkbox1">
+              Check me out
+            </label>
+          </div>
+        </form>
         <app-footer></app-footer>
         <app-button @click="buttonClick">button</app-button>
     </div>
+	  <div class="container">
+		  <app-login/>
+	  </div>
   </div>
 </template>
 
 <script>
-import AppHeader from './src/components/AppHeader.vue'
+import AppHeader from './src/components/app-header.vue'
 import AppFooter from './src/components/app-footer.vue'
-import AppButton from './src/components/app-button.vue'
+
+import AppLogin from './src/components/app-login'
 
 export default {
+  data: {
+
+  },
   methods: {
-    buttonClick() {
-      alert('test')
+    treeData() {
+
     }
   },
   components: {
     AppHeader,
     AppFooter,
-    AppButton
+	  AppLogin
   }
 }
 </script>

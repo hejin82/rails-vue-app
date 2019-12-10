@@ -11,7 +11,7 @@
             <input class="check" type="checkbox"/>
           </span>
           <span>{{item.title}}</span>
-          <span 
+          <span></span>
         </div>
       </li>
     </ul>
