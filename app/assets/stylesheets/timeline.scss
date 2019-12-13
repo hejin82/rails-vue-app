@@ -1,0 +1,128 @@
+.timeline {
+  list-style: none;
+  padding: 0 0 20px;
+  position: relative
+}
+
+.timeline:before {
+  top: 0;
+  bottom: 0;
+  position: absolute;
+  content: " ";
+  width: 1px;
+  background-color: #d1d2d3;
+  left: 60px
+}
+
+.timeline > li {
+  margin-bottom: 20px;
+  position: relative;
+  margin-top: 30px
+}
+
+.timeline > li:before, .timeline > li:after {
+  content: " ";
+  display: table
+}
+
+.timeline > li:after {
+  clear: both
+}
+
+.timeline > li.timeline-separator:before {
+  content: attr(data-datetime);
+  display: inline-block;
+  width: 120px;
+  text-align: center;
+  padding: 0 20px;
+  line-height: 30px;
+  border: 1px solid #e1e1e1;
+  background-color: #f1f2f3;
+  color: #a1a2a3
+}
+
+.timeline > li > .timeline-panel {
+  position: relative;
+  margin-left: 130px
+}
+
+.timeline > li > .timeline-panel .popover {
+  position: relative;
+  display: block;
+  margin: 0;
+  width: 100%;
+  max-width: none
+}
+
+.timeline > li > .timeline-panel .popover .arrow {
+  display: none
+}
+
+.timeline > li > .timeline-panel .popover .popover-content .popover-title {
+  background-color: transparent;
+  border: 0;
+  padding-left: 0;
+  padding-top: 0
+}
+
+.timeline > li > .timeline-date {
+  float: right;
+  margin: -20px 0 0;
+  display: block;
+  height: 20px;
+  line-height: 20px;
+  font-size: 13px
+}
+
+.timeline > li > .timeline-date > time:after {
+  content: attr(datetime)
+}
+
+.timeline > li > .timeline-badge {
+  position: absolute;
+  top: 0;
+  left: 60px;
+  width: 50px;
+  height: 50px;
+  border-radius: 500px;
+  margin-left: -25px;
+  line-height: 50px;
+  font-size: 1.4em;
+  text-align: center;
+  color: #fff;
+  background-color: #999;
+  z-index: 100
+}
+
+.timeline > li > .timeline-badge.primary {
+  background-color: #1c75bf
+}
+
+.timeline > li > .timeline-badge.success {
+  background-color: #27c24c
+}
+
+.timeline > li > .timeline-badge.warning {
+  background-color: #ff902b
+}
+
+.timeline > li > .timeline-badge.danger {
+  background-color: #f05050
+}
+
+.timeline > li > .timeline-badge.info {
+  background-color: #23b7e5
+}
+
+.timeline-title {
+  margin-top: 0;
+  color: inherit
+}
+
+.timeline-body > p, .timeline-body > ul {
+  margin-bottom: 0
+}
+
+.timeline-body > p + p {
+  margin-top: 5px
+}
