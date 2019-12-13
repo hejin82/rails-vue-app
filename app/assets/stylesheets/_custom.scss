@@ -40,3 +40,42 @@ $brand-language: #B01302;
 
 }
 
+hr {
+  border-top: 1px solid #e4eaec;
+}
+
+.page-header {
+  border-bottom-color: #e4eaec;
+}
+.panel .panel-heading {
+  border-bottom: 0;
+  font-size: 14px;
+}
+.panel .panel-heading a {
+  text-decoration: none !important;
+}
+.panel.panel-default {
+  border-top-width: 3px;
+}
+
+.nav-tabs > li > a {
+  font-weight: bold;
+  color: #515253;
+  background-color: #edf1f2;
+  margin: 0;
+  border: 1px solid #dde6e9;
+  border-radius: 0;
+  padding: 10px 20px;
+}
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:hover,
+.nav-tabs > li.active > a:focus {
+  color: inherit;
+  border-bottom-color: #fff;
+}
+.tab-content {
+  padding: 10px 20px 0;
+  border-style: solid;
+  border-width: 0 1px 1px 1px;
+  border-color: #dde6e9;
+}
