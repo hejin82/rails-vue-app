@@ -32,7 +32,6 @@ class Staff::Base < ApplicationController
 
   def check_timeout
     if current_staff_member
-      session[:last_access_time] = Time.current
       if session[:last_access_time] >= TIMEOUT.ago
         session[:last_access_time] = Time.current
       else

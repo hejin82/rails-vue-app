@@ -2,4 +2,4 @@ require("@rails/ujs").start()
 require("@rails/activestorage").start()
 require("channels")
 
-import "stylesheets/staff"
+import "stylesheets/admin"

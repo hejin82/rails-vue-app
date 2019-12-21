@@ -11,7 +11,8 @@ class Admin::SessionsController < Admin::Base
   end
 
   def create
-    @form = Admin::LoginForm.new(params[:admin_login_form])
+    param = params.require(:admin_login_form).permit(:email, :password)
+    @form = Admin::LoginForm.new(param)
     if @form.email.present?
       administrator = Administrator.find_by(email_for_index: @form.email.downcase)
     end

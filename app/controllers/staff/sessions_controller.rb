@@ -11,17 +11,20 @@ class Staff::SessionsController < Staff::Base
   end
 
   def create
-    @form = Staff::LoginForm.new(staff_login_form)
+    param = params.require(:staff_login_form).permit(:email, :password)
+    @form = Staff::LoginForm.new(param)
     if @form.email.present?
       staff_member = StaffMember.find_by(email_for_index: @form.email.downcase)
     end
     if Staff::Authenticator.new(staff_member).authenticate(@form.password)
       if staff_member.suspended?
+        staff_member.events.create!(type: 'rejected')
         flash.now.alert = 'アカウントが停止されています。'
         render action: 'new'
       else
         session[:staff_member_id] = staff_member.id
         session[:last_access_time] = Time.current
+        staff_member.events.create!(type: 'logged_in')
         flash.notice = 'ログインしました。'
         redirect_to :staff_root
       end
@@ -32,14 +35,11 @@ class Staff::SessionsController < Staff::Base
   end
 
   def destroy
+    if current_staff_member
+      current_staff_member.events.create!(type: 'logged_out')
+    end
     session.delete(:staff_member_id)
     flash.notice = 'ログアウトしました。'
     redirect_to :staff_root
-  end
-
-  private
-
-  def staff_login_form
-    params.require(:staff_login_form).permit(:email, :password)
   end
 end
