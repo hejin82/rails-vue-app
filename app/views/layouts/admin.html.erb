@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>RailsVueApp</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <%= stylesheet_pack_tag 'application' %>
+  <%= javascript_pack_tag 'application' %>
+  <% if content_for? :head %>
+    <%= yield :head %>
+  <% end %>
+</head>
+
+<body>
+<div id="container">
+  <%= render 'admin/shared/header' %>
+  <div id="container">
+    <%= yield %>
+  </div>
+  <%= render 'shared/footer' %>
+</div>
+</body>
+</html>
