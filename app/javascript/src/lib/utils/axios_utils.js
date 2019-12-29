@@ -18,7 +18,7 @@ axios.interceptors.response.use(
   e => {
     window.activeVueResources -= 1;
     return Promise.reject(e);
-  },
+  }
 );
 
 export default axios;

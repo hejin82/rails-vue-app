@@ -22,4 +22,5 @@ document.addEventListener('DOMContentLoaded', () => {
         .finally(() => (this.loading = false));
     }
   });
+  console.log(app);
 });
