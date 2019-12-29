@@ -1,5 +1,5 @@
-import Vue from 'vue/dist/vue.esm'
-import axios from 'axios'
+import Vue from 'vue/dist/vue.esm';
+import axios from 'axios';
 
 document.addEventListener('DOMContentLoaded', () => {
   const app = new Vue({

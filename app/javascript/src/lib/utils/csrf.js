@@ -9,7 +9,7 @@ const csrf = {
     } else {
       this.csrfToken = null;
     }
-    console.log('csrf.init', tokenEl)
+    console.log('csrf.init', tokenEl);
   },
 
   get token() {
@@ -26,7 +26,7 @@ const csrf = {
         [this.headerKey]: this.token,
       };
     }
-    return {}
+    return {};
   }
 };
 
