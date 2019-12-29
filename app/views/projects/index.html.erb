@@ -1,6 +1,100 @@
 <% content_for :head do -%>
   <%= javascript_pack_tag 'project' %>
 <% end %>
+<br>
+<br>
+<div class="container">
+  <div class="card">
+    <div class="card-header text-right">
+      spinner
+      <a href="#" data-perform="panel-collapse">
+        <i class="fa fa-minus"></i>
+      </a>
+      <a href="#" data-perform="panel-refresh">
+        <i class="fa fa-sync-alt"></i>
+      </a>
+      <a href="#">
+        link
+      </a>
+    </div>
+    <div class="card-body">
+      card-body
+    </div>
+  </div>
+</div>
+<br>
+<br>
+<div class="container">
+  <div class="panel panel-default panel-demo">
+    <div class="panel-heading">
+      spinner
+      <a href="#" data-perform="panel-collapse">
+        <i class="fa fa-minus"></i>
+      </a>
+      <a href="#" data-perform="panel-refresh">
+        <i class="fa fa-sync-alt"></i>
+      </a>
+      <a href="#">
+        link
+      </a>
+    </div>
+    <div class="panel-wrapper collapse in">
+      <div class="panel-body">
+        panel-body
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div>
+      sss
+      <i class="fas fa-sync-alt"></i>
+      <i class="fas fa-minus"></i>
+    </div>
+
+  </div>
+</div>
+<div class="container">
+  <button class="btn btn-primary">btn-primary</button>
+  <div class="page-title-holder">
+    <h1 class="page-title">Projects</h1>
+    <div class="page-title-controls">
+      <%= link_to 'New projects', new_project_path, class: "btn btn-success" %>
+    </div>
+  </div>
+  <div class="top-area scrolling-tabs-container inner-page-scroll-tabs">
+    <ul class="nav-link scrolling-tabls nav nav-tabs">
+      <li>
+        <%= link_to 'New projects', new_project_path, class: "btn btn-primary" %>
+      </li>
+    </ul>
+  </div>
+  <div class="nav-controls">
+    <%= form_tag projects_path, method: :get, class: 'project-filter-form', id: 'project-filter-form' do |f| %>
+      <%= search_field_tag :name, params[:name], placeholder: 'filter by name...', class: 'project-filter-form-field form-control input-short js-projects-list-filter', id: 'project-filter-form-field' %>
+    <% end %>
+  </div>
+  <div class="js-projects-list-holder">
+    js-projects-list-holder
+  </div>
+</div>
+
+<div class="container">
+  <ul class="nav nav-tabs">
+    <%= filter_link 'ALL', 'ALL', 'ALL' %>
+    <li class="nav-item">
+      <a class="active nav-link <%= active_when(params[:filter].nil?) %>" href="<%= projects_path %>">All</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link <%= active_when(params[:filter] == 'item') %>" href="<%= projects_path %>">Item</a>
+    </li>
+  </ul>
+  <div class="content-list">
+
+  </div>
+</div>
+
 <p id="notice"><%= notice %></p>
 
 <h1>Projects</h1>
