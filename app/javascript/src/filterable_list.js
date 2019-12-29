@@ -59,7 +59,7 @@ export default class FilterableList {
     this.isBusy = true;
 
     return axios
-      .get(this.getFilterEndpoint(), {params})
+      .get(this.getFilterEndpoint(), { params })
       .then(res => {
         this.onFilterSuccess(res, params);
         this.onFilterComplete();
@@ -76,7 +76,7 @@ export default class FilterableList {
 
     return window.history.replaceState(
       {
-        page: currentPath,
+        page: currentPath
       },
       document.title,
       currentPath

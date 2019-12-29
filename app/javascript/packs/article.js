@@ -5,23 +5,21 @@ document.addEventListener('DOMContentLoaded', () => {
   const app = new Vue({
     el: '#app',
     data: {
-      message: "Can you say hello?",
+      message: 'Can you say hello?',
       info: null,
       loading: true,
       errored: false
     },
-    components: {
-
-    },
-    mounted () {
+    components: {},
+    mounted() {
       axios
         .get('/articles.json')
         .then(response => (this.info = response.data))
         .catch(error => {
-          console.log(error)
-          this.errored = true
+          console.log(error);
+          this.errored = true;
         })
-        .finally(() => this.loading = false)
+        .finally(() => (this.loading = false));
     }
-  })
-})
+  });
+});
