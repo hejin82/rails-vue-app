@@ -3,6 +3,12 @@
     "eslint:recommended",
     "plugin:vue/recommended"
   ],
+  "globals": {
+    "require": true
+  },
+  "parserOptions": {
+    "parser": "babel-eslint"
+  },
   "rules": {
     "semi": "error",
     "indent": ["error", 2],
