@@ -5,7 +5,8 @@ module.exports = {
     // "eslint-config-airbnb-base",
     // 'plugin:prettier/recommended',
     // 'eslint:recommended',
-    'plugin:vue/recommended'
+    'plugin:vue/recommended',
+    'plugin:prettier/recommended'
   ],
   plugins: ['vue'],
   env: {
@@ -30,14 +31,6 @@ module.exports = {
     }
   },
   rules: {
-    'prettier/prettier': [
-      'error',
-      {
-        printWidth: 120,
-        singleQuote: true,
-        trailingComma: 'es5',
-        semi: true
-      }
-    ]
+    'prettier/prettier': 'error'
   }
 };
