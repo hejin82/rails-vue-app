@@ -1,7 +1,8 @@
-@import "./bootstrap-variables";
-@import "~bootstrap/scss/bootstrap";
-@import "~@fortawesome/fontawesome-free/scss/fontawesome";
+@import './bootstrap-variables';
+@import '~bootstrap/scss/bootstrap';
+@import '~@fortawesome/fontawesome-free/scss/fontawesome';
 //@import "./custom";
-@import "./ribbon";
-@import "./panel";
-
+@import './ribbon';
+@import './panel';
+@import './app-navbar';
+@import './progress';

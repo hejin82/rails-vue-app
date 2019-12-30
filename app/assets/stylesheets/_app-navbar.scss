@@ -1,0 +1,55 @@
+.navbar-app.navbar-top {
+  background-color: #1c75bf;
+  border-bottom: solid 1px #f7f7f7;
+  margin: 0 0 0 0;
+  z-index: 900;
+  //display: none;
+}
+
+.navbar-app.navbar-top .navbar-nav > li {
+  line-height: 0px;
+}
+
+.navbar-app.navbar-top .navbar-nav > li > a {
+  padding: 10px 10px;
+  padding-top: 15px;
+  display: inline-block;
+}
+
+.navbar-app.navbar-top .navbar-nav > li > a > .fa {
+  font-size: 18px;
+  margin-right: 3px;
+}
+
+.navbar-app.navbar-top .navbar-nav > li > a,
+.navbar-app.navbar-top .navbar-nav > li > a:hover,
+.navbar-app.navbar-top .navbar-nav > li > a:focus {
+  color: #428bca;
+}
+.navbar-app.navbar-top .navbar-nav > li > a:hover {
+  background-color: #f5f5f5;
+}
+.navbar-app.navbar-top .navbar-nav > li.active > a,
+.navbar-app.navbar-top .navbar-nav > li.active:hover,
+.navbar-app.navbar-top .navbar-nav > li.active:focus {
+  color: #428bca;
+  background-color: #f5f5f5;
+}
+
+.input-group-addon {
+  background: #fff;
+  color: #33414e;
+  line-height: 40px;
+  font-size: 21px;
+  border-color: #d5d5d5;
+  display: table-cell;
+}
+
+.input-group-addon:first-child {
+  border-right: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  vertical-align: bottom;
+  text-align: center;
+  min-width: 36px;
+}
