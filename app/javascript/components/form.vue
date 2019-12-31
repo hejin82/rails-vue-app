@@ -13,7 +13,9 @@
 										 v-model="$v.form.email.$model"
 										 :validator="$v.form.email"/>
 					<BaseSelect label="What do you love most about Vue?"
-											:options="loveOptions" v-model="$v.form.love.$model"/>
+											:options="loveOptions"
+											v-model="$v.form.love.$model"
+											:validator="$v.form.love"/>
 					<input type="text" v-model="form.telephone" v-mask="'(###)####-####'">
 					<input type="text" v-model="$v.form.website.$model" class="form-control"
 						:class="{
@@ -22,7 +24,10 @@
 						}">
 					<pre>{{$v}}</pre>
 					<div class="form-group">
-						<button :disabled="!formIsValid" @click.prevent="onSubmit" type="submit" class="btn btn-primary">Submit</button>
+						<button :disabled="$v.$error"
+										@click.prevent="onSubmit"
+										type="submit"
+										class="btn btn-primary">Submit</button>
 					</div>
 				</form>
 			</div>
@@ -78,8 +83,10 @@
     },
 		methods: {
       onSubmit() {
-        console.log('click', this.formIsValid());
-        if (!this.formIsValid()) {
+        // console.log('click', this.formIsValid());
+        this.$v.$touch();
+        console.log(('this.$v.$invalid:', this.$v.$invalid))
+        if (this.$v.$invalid) {
           return;
 				}
         axios.post('/forms', {form: this.form})
@@ -90,13 +97,13 @@
 					  console.log('an error occurred', err);
 					});
 			},
-			formIsValid() {
-        return (
-          this.form.first_name.length > 0 &&
-					this.form.last_name.length > 0 &&
-					this.form.email.length > 0
-				)
-			}
+			// formIsValid() {
+      //   return (
+      //     this.form.first_name.length > 0 &&
+			// 		this.form.last_name.length > 0 &&
+			// 		this.form.email.length > 0
+			// 	)
+			// }
 		}
   };
 </script>
