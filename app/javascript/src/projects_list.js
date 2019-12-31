@@ -2,7 +2,7 @@ import FilterableList from './filterable_list';
 
 export default class ProjectsList {
   constructor() {
-    const form = document.querySelector('form#project-filter-form');
+    const form = document.querySelector('forms#project-filter-forms');
     const filter = document.querySelector('.js-projects-list-filter');
     const holder = document.querySelector('.js-projects-list-holder');
 

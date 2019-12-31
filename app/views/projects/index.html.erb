@@ -75,8 +75,8 @@
     </ul>
   </div>
   <div class="nav-controls">
-    <%= form_tag projects_path, method: :get, class: 'project-filter-form', id: 'project-filter-form' do |f| %>
-      <%= search_field_tag :name, params[:name], placeholder: 'filter by name...', class: 'project-filter-form-field form-control input-short js-projects-list-filter', id: 'project-filter-form-field' %>
+    <%= form_tag projects_path, method: :get, class: 'project-filter-forms', id: 'project-filter-forms' do |f| %>
+      <%= search_field_tag :name, params[:name], placeholder: 'filter by name...', class: 'project-filter-forms-field forms-control input-short js-projects-list-filter', id: 'project-filter-forms-field' %>
     <% end %>
   </div>
   <div class="js-projects-list-holder">
