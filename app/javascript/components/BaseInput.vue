@@ -1,7 +1,14 @@
 <template>
   <div class="form-group">
     <label>{{label}}</label>
-    <input :value="value" :type="type" @input="$emit('input', $event.target.value)" class="form-control">
+    <input :value="value"
+           :type="type"
+           @input="$emit('input', $event.target.value)"
+           class="form-control"
+           :class="{
+											'is-valid': validator && !validator.$error && validator.$dirty,
+											'is-invalid': validator && validator.$error
+										}">
   </div>
 </template>
 
@@ -22,6 +29,13 @@
       value: {
         type: String,
         required: true
+      },
+      validator: {
+        type: Object,
+        required: false,
+        validator($v) {
+          return $v.hasOwnProperty('$model');
+        }
       }
     }
   }
