@@ -1,0 +1,10 @@
+{
+  "first_name": {
+    "component": "BaseInput",
+    "label": "First Name:"
+  },
+  "last_name": {
+    "component": "BaseInput",
+    "label": "Last Name:"
+  }
+}

@@ -32,6 +32,17 @@
 					</div>
 				</form>
 			</div>
+			<hr>
+			<div class="row">
+				<div class="col-12">
+					<form>
+						<Renderer v-for="(element, name) in schema"
+											:key="name"
+											:element="element"
+											v-model="form[name]"/>
+					</form>
+				</div>
+			</div>
 		</div>
 	</div>
 </template>
@@ -42,6 +53,8 @@
 	import BaseSelect from './BaseSelect';
 	import { url, alpha, email, required } from 'vuelidate/lib/validators';
 	import { mapState } from 'vuex';
+	import schema from './formSchema.json';
+  import Renderer from "./Renderer";
 
   export default {
     validations: {
@@ -64,6 +77,7 @@
 			}
 		},
     components: {
+      Renderer,
       BaseInput,
 			BaseSelect
 		},
@@ -81,6 +95,7 @@
 					{ label: 'fun to user', value: 'fun' },
 					{ label: 'friendly learning curve', value: 'curve' }
 				],
+				schema: schema
       };
     },
 		methods: {
