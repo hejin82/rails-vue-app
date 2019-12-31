@@ -25,6 +25,7 @@ class FormsController < ApplicationController
   # POST /forms.json
   def create
     @form = Form.new(form_params)
+    logger.debug form_params
 
     respond_to do |format|
       if @form.save

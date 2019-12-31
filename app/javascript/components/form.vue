@@ -5,11 +5,11 @@
 				<form>
 					<div class="form-group">
 						<label>First Name:</label>
-						<input v-model="form.firstName" type="text" class="form-control">
+						<input v-model="form.first_name" type="text" class="form-control">
 					</div>
 					<div class="form-group">
 						<label>Last Name:</label>
-						<input v-model="form.lastName" type="text" class="form-control">
+						<input v-model="form.last_name" type="text" class="form-control">
 					</div>
 					<div class="form-group">
 						<label>Email:</label>
@@ -25,14 +25,14 @@
 </template>
 
 <script>
-	import axios from 'axios';
+	import axios from '../src/lib/utils/axios_utils';
 
   export default {
     data: function() {
       return {
         form: {
-          firstName: '',
-					lastName: '',
+          first_name: '',
+					last_name: '',
 					email: ''
 				}
       };
@@ -43,7 +43,7 @@
         if (!this.formIsValid()) {
           return;
 				}
-        axios.post('/forms', {params: this.form})
+        axios.post('/forms', {form: this.form})
 					.then(response => {
 					  console.log('from has been posted', response)
 					})
@@ -53,8 +53,8 @@
 			},
 			formIsValid() {
         return (
-          this.form.firstName.length > 0 &&
-					this.form.lastName.length > 0 &&
+          this.form.first_name.length > 0 &&
+					this.form.last_name.length > 0 &&
 					this.form.email.length > 0
 				)
 			}
