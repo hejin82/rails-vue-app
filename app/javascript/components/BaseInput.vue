@@ -9,18 +9,18 @@
   export default {
     props: {
       label: {
-        type: string,
+        type: String,
         required: true
       },
       type: {
-        type: string,
+        type: String,
         default: 'text',
         validator(value) {
           return ['text', 'email', 'password'].includes(value);
         }
       },
       value: {
-        type: string,
+        type: String,
         required: true
       }
     }

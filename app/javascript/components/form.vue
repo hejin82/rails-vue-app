@@ -3,18 +3,10 @@
 		<div class="row">
 			<div class="col-12">
 				<form>
-					<div class="form-group">
-						<label>First Name:</label>
-						<input v-model="form.first_name" type="text" class="form-control">
-					</div>
-					<div class="form-group">
-						<label>Last Name:</label>
-						<input v-model="form.last_name" type="text" class="form-control">
-					</div>
-					<div class="form-group">
-						<label>Email:</label>
-						<input v-model="form.email" type="email" class="form-control">
-					</div>
+					<BaseInput label="First Name:" v-model="form.first_name"/>
+					<BaseInput label="Last Name:" v-model="form.last_name"/>
+					<BaseInput label="Email:" v-model="form.email"/>
+					<BaseSelect label="What do you love most about Vue?" :options="loveOptions" v-model="form.love"/>
 					<div class="form-group">
 						<button :disabled="!formIsValid" @click.prevent="onSubmit" type="submit" class="btn btn-primary">Submit</button>
 					</div>
@@ -26,15 +18,26 @@
 
 <script>
 	import axios from '../src/lib/utils/axios_utils';
+	import BaseInput from './BaseInput';
+	import BaseSelect from './BaseSelect';
 
   export default {
+    components: {
+      BaseInput,
+			BaseSelect
+		},
     data: function() {
       return {
         form: {
           first_name: '',
 					last_name: '',
-					email: ''
-				}
+					email: '',
+					love: 'fun'
+				},
+				loveOptions: [
+					{ label: 'fun to user', value: 'fun' },
+					{ label: 'friendly learning curve', value: 'curve' }
+				]
       };
     },
 		methods: {
