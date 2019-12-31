@@ -2,13 +2,18 @@
   <script src="https://unpkg.com/vue/dist/vue.js"></script>
 <% end %>
 <div id="app">
-  {{message}}
+  <h3>Grocery List</h3>
+  <ul>
+    <li v-for="grocery in groceries">
+      {{grocery}}
+    </li>
+  </ul>
 </div>
 <script>
   new Vue({
     el: '#app',
     data: {
-      message: 'hello world!'
+      groceries: ['Bread', 'Milk']
     }
   });
 </script>
