@@ -1,0 +1,14 @@
+<% content_for :head do -%>
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+<% end %>
+<div id="app">
+  {{message}}
+</div>
+<script>
+  new Vue({
+    el: '#app',
+    data: {
+      message: 'hello world!'
+    }
+  });
+</script>
