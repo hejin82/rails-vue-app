@@ -7,6 +7,7 @@
 					<BaseInput label="Last Name:" v-model="form.last_name"/>
 					<BaseInput label="Email:" v-model="form.email"/>
 					<BaseSelect label="What do you love most about Vue?" :options="loveOptions" v-model="form.love"/>
+					<input type="text" v-model="form.telephone" v-mask="'(###)####-####'">
 					<div class="form-group">
 						<button :disabled="!formIsValid" @click.prevent="onSubmit" type="submit" class="btn btn-primary">Submit</button>
 					</div>
@@ -32,12 +33,13 @@
           first_name: '',
 					last_name: '',
 					email: '',
-					love: 'fun'
-				},
+					love: 'fun',
+          telephone: ''
+        },
 				loveOptions: [
 					{ label: 'fun to user', value: 'fun' },
 					{ label: 'friendly learning curve', value: 'curve' }
-				]
+				],
       };
     },
 		methods: {
