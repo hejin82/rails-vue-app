@@ -5,6 +5,7 @@
 				<form>
 					<BaseInput label="First Name:"
 										 v-model="$v.form.first_name.$model"
+										 @input="updateUser('first_name', $event)"
 										 :validator="$v.form.first_name"/>
 					<BaseInput label="Last Name:"
 										 v-model="$v.form.last_name.$model"
@@ -40,6 +41,7 @@
 	import BaseInput from './BaseInput';
 	import BaseSelect from './BaseSelect';
 	import { url, alpha, email, required } from 'vuelidate/lib/validators';
+	import { mapState } from 'vuex';
 
   export default {
     validations: {
@@ -82,6 +84,14 @@
       };
     },
 		methods: {
+      updateUser(property, value) {
+        this.$store.dispatch('updateUserData', {
+          property,
+					value
+				});
+				this.$v.form[property].$touch();
+        console.log('this.$store.state.user.first_name', this.$store.state.user.first_name);
+			},
       onSubmit() {
         // console.log('click', this.formIsValid());
         this.$v.$touch();
@@ -104,6 +114,13 @@
 			// 		this.form.email.length > 0
 			// 	)
 			// }
+		},
+		created() {
+      console.log('created()');
+      this.$store.dispatch('getLoggedInUser');
+		},
+		computed: {
+      ...mapState({form: 'user'})
 		}
   };
 </script>
