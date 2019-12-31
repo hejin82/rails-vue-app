@@ -1,12 +1,12 @@
 module.exports = {
   root: true,
   extends: [
-    'standard',
+    // 'standard',
     // "eslint-config-airbnb-base",
     // 'plugin:prettier/recommended',
-    // 'eslint:recommended',
-    'plugin:vue/recommended',
-    'plugin:prettier/recommended'
+    // 'eslint:recommended'
+    // 'plugin:vue/recommended',
+    // 'plugin:prettier/recommended'
   ],
   plugins: ['vue'],
   env: {
@@ -29,8 +29,8 @@ module.exports = {
         }
       }
     }
-  },
-  rules: {
-    'prettier/prettier': 'error'
   }
+  // rules: {
+  //   'prettier/prettier': 'error'
+  // }
 };

@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import App from '../components/form';
+import App from '../components/form.vue';
 
 document.addEventListener('DOMContentLoaded', () => {
   const app = new Vue({
