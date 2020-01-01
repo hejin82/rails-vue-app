@@ -1,5 +1,10 @@
 <template>
-  <component :is="component" v-bind="props" :value="value" @input="handleComponentInput"/>
+  <component
+    :is="component"
+    v-bind="props"
+    :value="value"
+    @input="handleComponentInput"
+  />
 </template>
 <script>
   export default {
@@ -12,11 +17,6 @@
         required: true
       }
     },
-    methods: {
-      handleComponentInput(value) {
-        this.$emit('input', value)
-      }
-    },
     computed: {
       component() {
         const componentName = this.element.component;
@@ -24,6 +24,11 @@
       },
       props() {
         return this.element;
+      }
+    },
+    methods: {
+      handleComponentInput(value) {
+        this.$emit('input', value)
       }
     }
   }

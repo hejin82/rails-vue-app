@@ -1,50 +1,75 @@
 <template>
-	<div id="app" class="container py-4">
-		<div class="row">
-			<div class="col-12">
-				<form>
-					<BaseInput label="First Name:"
-										 v-model="$v.form.first_name.$model"
-										 @input="updateUser('first_name', $event)"
-										 :validator="$v.form.first_name"/>
-					<BaseInput label="Last Name:"
-										 v-model="$v.form.last_name.$model"
-										 :validator="$v.form.last_name"/>
-					<BaseInput label="Email:"
-										 v-model="$v.form.email.$model"
-										 :validator="$v.form.email"/>
-					<BaseSelect label="What do you love most about Vue?"
-											:options="loveOptions"
-											v-model="$v.form.love.$model"
-											:validator="$v.form.love"/>
-					<input type="text" v-model="form.telephone" v-mask="'(###)####-####'">
-					<input type="text" v-model="$v.form.website.$model" class="form-control"
-						:class="{
-							'is-valid': !$v.form.website.$error && $v.form.website.$dirty,
-							'is-invalid': $v.form.website.$error
-						}">
-					<pre>{{$v}}</pre>
-					<div class="form-group">
-						<button :disabled="$v.$error"
-										@click.prevent="onSubmit"
-										type="submit"
-										class="btn btn-primary">Submit</button>
-					</div>
-				</form>
-			</div>
-			<hr>
-			<div class="row">
-				<div class="col-12">
-					<form>
-						<Renderer v-for="(element, name) in schema"
-											:key="name"
-											:element="element"
-											v-model="form[name]"/>
-					</form>
-				</div>
-			</div>
-		</div>
-	</div>
+  <div
+    id="app"
+    class="container py-4"
+  >
+    <div class="row">
+      <div class="col-12">
+        <form>
+          <BaseInput
+            v-model="$v.form.first_name.$model"
+            label="First Name:"
+            :validator="$v.form.first_name"
+            @input="updateUser('first_name', $event)"
+          />
+          <BaseInput
+            v-model="$v.form.last_name.$model"
+            label="Last Name:"
+            :validator="$v.form.last_name"
+          />
+          <BaseInput
+            v-model="$v.form.email.$model"
+            label="Email:"
+            :validator="$v.form.email"
+          />
+          <BaseSelect
+            v-model="$v.form.love.$model"
+            label="What do you love most about Vue?"
+            :options="loveOptions"
+            :validator="$v.form.love"
+          />
+          <input
+            v-model="form.telephone"
+            v-mask="'(###)####-####'"
+            type="text"
+          >
+          <input
+            v-model="$v.form.website.$model"
+            type="text"
+            class="form-control"
+            :class="{
+              'is-valid': !$v.form.website.$error && $v.form.website.$dirty,
+              'is-invalid': $v.form.website.$error
+            }"
+          >
+          <pre>{{ $v }}</pre>
+          <div class="form-group">
+            <button
+              :disabled="$v.$error"
+              type="submit"
+              class="btn btn-primary"
+              @click.prevent="onSubmit"
+            >
+              Submit
+            </button>
+          </div>
+        </form>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-12">
+          <form>
+            <Renderer
+              v-for="(element, name) in schema"
+              :key="name"
+              v-model="form[name]"
+              :element="element"
+            />
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -98,6 +123,10 @@
 				schema: schema
       };
     },
+		created() {
+      console.log('created()');
+      this.$store.dispatch('getLoggedInUser');
+		},
 		methods: {
       updateUser(property, value) {
         this.$store.dispatch('updateUserData', {
@@ -129,10 +158,6 @@
 			// 		this.form.email.length > 0
 			// 	)
 			// }
-		},
-		created() {
-      console.log('created()');
-      this.$store.dispatch('getLoggedInUser');
 		},
 		computed: {
       ...mapState({form: 'user'})

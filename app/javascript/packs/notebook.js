@@ -10,6 +10,34 @@ document.addEventListener('DOMContentLoaded', () => {
       notes: JSON.parse(localStorage.getItem('notes')) || [],
       selectedId: localStorage.getItem('selected-id') || null
     },
+    computed: {
+      notePreview() {
+        return this.selectedNote ? marked(this.selectedNote.content) : '';
+      },
+      addButtonTitle() {
+        return this.notes.length + ' note(s) already';
+      },
+      selectedNote() {
+        return this.notes.find(note => note.id === this.selectedId) || { content: '', favorite: false };
+      }
+    },
+    watch: {
+      notes: {
+        // handler(val, oldVal) {
+        //   console.log('new note:', val, 'old note:', oldVal);
+        //   localStorage.setItem('content', val);
+        // },
+        handler: 'saveNote',
+        immediate: true,
+        deep: true
+      },
+      selectedId(val) {
+        localStorage.setItem('selected-id', val);
+      }
+    },
+    created() {
+      this.content = localStorage.getItem('content') || 'you can write in **markdown**';
+    },
     methods: {
       saveNote(val) {
         console.log('saving note:', val);
@@ -43,34 +71,6 @@ document.addEventListener('DOMContentLoaded', () => {
       },
       selectNote(note) {
         this.selectedId = note.id;
-      }
-    },
-    created() {
-      this.content = localStorage.getItem('content') || 'you can write in **markdown**';
-    },
-    computed: {
-      notePreview() {
-        return this.selectedNote ? marked(this.selectedNote.content) : '';
-      },
-      addButtonTitle() {
-        return this.notes.length + ' note(s) already';
-      },
-      selectedNote() {
-        return this.notes.find(note => note.id === this.selectedId) || { content: '', favorite: false };
-      }
-    },
-    watch: {
-      notes: {
-        // handler(val, oldVal) {
-        //   console.log('new note:', val, 'old note:', oldVal);
-        //   localStorage.setItem('content', val);
-        // },
-        handler: 'saveNote',
-        immediate: true,
-        deep: true
-      },
-      selectedId(val) {
-        localStorage.setItem('selected-id', val);
       }
     }
   });

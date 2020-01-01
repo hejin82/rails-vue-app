@@ -1,14 +1,21 @@
 <template>
   <div class="form-group">
-    <label>{{label}}</label>
-    <select @change="$emit('input', $event.target.value)"
-            class="form-control"
-            :class="{
-              'is-valid': validator && !validator.$error,
-              'is-invalid': validator && validator.$error
-            }">
-      <option v-for="opt in options" :key="opt.value" :value="opt.value" :selected="value === opt.value">
-        {{ opt.label || 'No label'}}
+    <label>{{ label }}</label>
+    <select
+      class="form-control"
+      :class="{
+        'is-valid': validator && !validator.$error,
+        'is-invalid': validator && validator.$error
+      }"
+      @change="$emit('input', $event.target.value)"
+    >
+      <option
+        v-for="opt in options"
+        :key="opt.value"
+        :value="opt.value"
+        :selected="value === opt.value"
+      >
+        {{ opt.label || 'No label' }}
       </option>
     </select>
   </div>
