@@ -1,0 +1,32 @@
+<% content_for :head do -%>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <%= stylesheet_pack_tag 'notebook' %>
+  <%= javascript_pack_tag 'notebook' %>
+<% end %>
+
+<div id="notebook">
+  <aside class="side-bar">
+    <div class="toolbar">
+      <button v-on:click="addNote" v-bind:title="addButtonTitle">
+        <i class="material-icons">add</i>Add note
+      </button>
+      <div class="notes">
+        <div class="note" :class="{ selected: note === selectedNote }" v-for="note of notes" @click="selectNote(note)">
+          {{ note.title }}
+        </div>
+      </div>
+    </div>
+  </aside>
+  <section class="main" v-if="selectedNote">
+    <input v-model="selectedNote.title" placeholder="Note title"/>
+    <button @click="removeNote" title="remove note">
+      <i class="material-icons">delete</i>
+    </button>
+    <button @click="favoriteNote">
+      <i class="material-icons">{{ selectedNote.favorite ? 'start' : 'start_border'}}</i>
+    </button>
+    <textarea v-model="selectedNote.content"></textarea>
+  </section>
+  <aside class="preview" v-if="selectedNote" v-html="notePreview">
+  </aside>
+</div>

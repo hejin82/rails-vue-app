@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'notebook/index'
   resources :forms
   resources :projects
   resources :articles
