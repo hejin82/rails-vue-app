@@ -5,7 +5,7 @@ module.exports = {
     // "eslint-config-airbnb-base",
     // 'plugin:prettier/recommended',
     // 'eslint:recommended'
-    // 'plugin:vue/recommended',
+    'plugin:vue/recommended'
     // 'plugin:prettier/recommended'
   ],
   plugins: ['vue'],
@@ -15,9 +15,11 @@ module.exports = {
   globals: {
     require: true
   },
-  // parser: "babel-eslint",
+  parser: 'vue-eslint-parser',
   parserOptions: {
-    parser: 'babel-eslint'
+    parser: 'babel-eslint',
+    sourceType: 'module',
+    ecmaVersion: 2015
   },
   settings: {
     'import/resolver': {
