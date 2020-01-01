@@ -18,20 +18,20 @@ module ApplicationHelper
   end
 
   def active_when(condition)
-    'active' if condition
+    "active" if condition
   end
 
   def filter_link(key, text, tooltip)
     key = key.to_s
-    active = 'active' if @event_filter.active?(key)
+    active = "active" if @event_filter.active?(key)
     link_options = {
-      class: 'nav-link event-filter-link',
+      class: "nav-link event-filter-link",
       id:    "#{key}_event_filter",
       title: tooltip
     }
-    content_tag :li, class: active.to_s + 'nav-item' do
+    content_tag :li, class: active.to_s + "nav-item" do
       link_to request.path, link_options do
-        content_tag(:span, ' ' + text)
+        content_tag(:span, " " + text)
       end
     end
   end

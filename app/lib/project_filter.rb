@@ -1,12 +1,12 @@
 class ProjectFilter
   attr_accessor :filter
 
-  ALL = 'all'
-  ITEM = 'item'
+  ALL = "all"
+  ITEM = "item"
   FILTERS = [ALL, ITEM].freeze
 
   def initialize(filter)
-    filter = filter.to_s.split(',')[0].to_s
+    filter = filter.to_s.split(",")[0].to_s
     @filter = FILTERS.include?(filter) ? filter : ALL
   end
 
