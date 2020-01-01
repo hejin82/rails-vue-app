@@ -4,8 +4,11 @@ module.exports = {
     // 'standard',
     // "eslint-config-airbnb-base",
     // 'plugin:prettier/recommended',
-    // 'eslint:recommended'
-    'plugin:vue/recommended'
+    'eslint:recommended',
+    'plugin:vue/recommended',
+    'plugin:vue/base',
+    'plugin:vue/strongly-recommended',
+    'plugin:vue/essential'
     // 'plugin:prettier/recommended'
   ],
   plugins: ['vue'],

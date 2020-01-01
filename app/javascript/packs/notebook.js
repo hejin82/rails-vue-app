@@ -3,7 +3,7 @@ import marked from 'marked';
 import 'stylesheets/notebook.css';
 
 document.addEventListener('DOMContentLoaded', () => {
-  const app = new Vue({
+  new Vue({
     el: '#notebook',
     components: {},
     data: {

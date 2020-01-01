@@ -9,6 +9,6 @@ export default class AjaxLoadingSpinner {
 
   static ajaxBeforeSend(e) {
     e.target.setAttribute('disabled', '');
-    const iconElement = e.target.querySelector('i');
+    // const iconElement = e.target.querySelector('i');
   }
 }

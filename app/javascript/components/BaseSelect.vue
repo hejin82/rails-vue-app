@@ -42,7 +42,9 @@
       validator: {
         type: Object,
         required: false,
+        // eslint-disable-next-line vue/require-default-prop
         validator($v) {
+          // eslint-disable-next-line no-prototype-builtins
           return $v.hasOwnProperty('$model');
         }
       }
