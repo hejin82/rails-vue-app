@@ -123,6 +123,9 @@
 				schema: schema
       };
     },
+    computed: {
+      ...mapState({form: 'user'})
+    },
 		created() {
       console.log('created()');
       this.$store.dispatch('getLoggedInUser');
@@ -159,9 +162,6 @@
 			// 	)
 			// }
 		},
-		computed: {
-      ...mapState({form: 'user'})
-		}
   };
 </script>
 
