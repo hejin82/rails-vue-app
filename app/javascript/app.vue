@@ -6,27 +6,25 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from 'vue'
+import Component from 'vue-class-component'
 import AppHeader from './src/components/app-header.vue'
 import AppFooter from './src/components/app-footer.vue'
 
-import AppLogin from './src/components/app-login'
-
-export default {
-  data: {
-
-  },
-  methods: {
-    treeData() {
-
-    }
-  },
+@Component({
   components: {
     AppHeader,
-    AppFooter,
-	  AppLogin
+    AppFooter
+  }
+})
+export default class App extends Vue {
+  message: string = 'Hello'
+  onClick(): void {
+    window.alert(this.message)
   }
 }
+
 </script>
 
 <style scoped>
