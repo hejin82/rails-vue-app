@@ -81,6 +81,14 @@ ActiveRecord::Schema.define(version: 2019_21_20_000012) do
     t.index ["given_name_kana"], name: "index_customers_on_given_name_kana"
   end
 
+  create_table "forms", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "email"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "phones", force: :cascade do |t|
     t.integer "customer_id", null: false
     t.integer "address_id"
@@ -93,6 +101,15 @@ ActiveRecord::Schema.define(version: 2019_21_20_000012) do
     t.index ["address_id"], name: "index_phones_on_address_id"
     t.index ["customer_id"], name: "index_phones_on_customer_id"
     t.index ["last_four_digits"], name: "index_phones_on_last_four_digits"
+  end
+
+  create_table "projects", force: :cascade do |t|
+    t.string "name"
+    t.string "desc"
+    t.integer "creator"
+    t.integer "owner"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "staff_events", force: :cascade do |t|
