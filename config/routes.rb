@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get "game/index"
   get "notebook/index"
+  get "login", to: "login#index"
   resources :forms
   resources :projects
   resources :articles
