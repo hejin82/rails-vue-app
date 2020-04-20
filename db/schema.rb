@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_21_20_000012) do
+ActiveRecord::Schema.define(version: 2020_04_20_110314) do
 
   create_table "addresses", force: :cascade do |t|
     t.integer "customer_id", null: false
@@ -136,6 +136,15 @@ ActiveRecord::Schema.define(version: 2019_21_20_000012) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email_for_index"], name: "index_staff_members_on_email_for_index", unique: true
     t.index ["family_name_kana", "given_name_kana"], name: "index_staff_members_on_family_name_kana_and_given_name_kana"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "email"
+    t.string "password"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   add_foreign_key "staff_events", "staff_members"
